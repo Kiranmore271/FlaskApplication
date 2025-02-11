@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <h4>Movies list is as below:</h4>
+        {% for movie in moviesdb %}
+        <p> {{ movie[1] }} - {{ movie[2] }} </p>
+        {% endfor %}
+    </body>
+</html>
