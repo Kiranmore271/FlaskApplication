@@ -14,8 +14,8 @@ app_config={
         'password':'Kiranuser',
         'database':'movie'
 }
- 
- 
+
+
 @app.route('/register')
 def register():
     return render_template("movieform.html")
@@ -28,7 +28,8 @@ def get_db_connection():
 @app.route('/')
 def Home():
     connection = get_db_connection()
- 
+
+#To add new movie data and save it 
 @app.route('/save', methods=["POST"])
 def save():
  
@@ -46,8 +47,8 @@ def save():
     connection.close()
     return ("Submit.html")
  
- 
- 
+
+#To search any movie with movieid
 @app.route('/search', methods=["GET","POST"])
 def search():
     session["mid"] = request.form.get("id")
@@ -60,7 +61,8 @@ def search():
     cur.close()
     connection.close()
     return render_template("movieid.html",movie=movie)
- 
+
+#To see the full list of movies
 @app.route('/list')
 def list():
  
@@ -73,4 +75,4 @@ def list():
     return render_template("movielist.html",moviesdb=moviesdb)
  
  
-app.run('0.0.0.0',port=5001,debug=True,use_reloader=True)
+app.run('0.0.0.0',port=5000,debug=True,use_reloader=True)
