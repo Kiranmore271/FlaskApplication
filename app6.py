@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 
 app = Flask("mysixthApp")
 
+#add here any secretkey
 app.secret_key="Nik"
 # MySQL Configuration
 app.config['MYSQL_HOST'] = 'localhost'
@@ -34,9 +35,6 @@ def save():
     return render_template("Submit.html")
 
 
-
-
-
 @app.route('/search', methods=["GET","POST"])
 def search():
     session["mid"] = request.form.get("id")
@@ -58,4 +56,4 @@ def list():
     return render_template("movielist.html",moviesdb=moviesdb)
 
 
-app.run(debug=True)
+app.run('192.168.162.188',5000,debug=True,use_reloader=True)
